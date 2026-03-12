@@ -184,6 +184,13 @@ Verifique se o arquivo é um JSON válido contendo um array de objetos no format
 ### Não vejo mudanças após editar
 Confirme se o navegador não está com cache agressivo; recarregue a página e tente novamente.
 
+### Publicação no GitHub Pages sem layout
+Se o link público abrir sem a barra final (ex.: `https://usuario.github.io/repositorio`), o navegador pode resolver CSS/JS no caminho errado.
+
+Ação recomendada:
+- Acessar com barra final: `https://usuario.github.io/repositorio/`
+- Ou usar explicitamente: `https://usuario.github.io/repositorio/index.html`
+
 ## Próximos Passos Sugeridos
 
 - Adicionar validação mais rígida de URL/categoria

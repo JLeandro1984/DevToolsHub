@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DevTools Hub</title>
+    <script>
+      (function ensureCanonicalDirectoryUrl() {
+        const { pathname, search, hash } = window.location;
+        const isLikelyFile = pathname.split("/").pop().includes(".");
+        if (!pathname.endsWith("/") && !isLikelyFile) {
+          window.location.replace(`${pathname}/${search}${hash}`);
+        }
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="./assets/devtools-hub-icon.svg" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/layout.css" />
