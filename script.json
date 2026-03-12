@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-03-12T00:00:00.000Z",
+  "tools": [
+    {
+      "id": "default-cpf",
+      "title": "Gerador de CPF",
+      "url": "https://www.4devs.com.br/gerador_de_cpf",
+      "icon": "🧾",
+      "description": "Gera CPFs válidos para testes e homologação.",
+      "category": "Generators",
+      "favorite": true,
+      "openInNewTab": false,
+      "createdAt": "2026-03-12T00:00:00.000Z",
+      "order": 0
+    },
+    {
+      "id": "default-json",
+      "title": "Validador JSON",
+      "url": "https://jsonformatter.curiousconcept.com/",
+      "icon": "🧪",
+      "description": "Validação rápida de JSON com feedback visual.",
+      "category": "Dev Tools",
+      "favorite": true,
+      "openInNewTab": false,
+      "createdAt": "2026-03-12T00:00:00.000Z",
+      "order": 1
+    },
+    {
+      "id": "default-base64",
+      "title": "Conversor Base64",
+      "url": "https://www.base64encode.org/",
+      "icon": "🔐",
+      "description": "Encode e decode de conteúdo Base64.",
+      "category": "Security",
+      "favorite": false,
+      "openInNewTab": false,
+      "createdAt": "2026-03-12T00:00:00.000Z",
+      "order": 2
+    },
+    {
+      "id": "default-uuid",
+      "title": "Gerador UUID",
+      "url": "https://www.uuidgenerator.net/",
+      "icon": "🆔",
+      "description": "Criação rápida de identificadores UUID.",
+      "category": "Generators",
+      "favorite": false,
+      "openInNewTab": false,
+      "createdAt": "2026-03-12T00:00:00.000Z",
+      "order": 3
+    },
+    {
+      "id": "default-jwt",
+      "title": "Visualizador JWT",
+      "url": "https://jwt.io/",
+      "icon": "🛡️",
+      "description": "Decode e inspeção de tokens JWT.",
+      "category": "Security",
+      "favorite": false,
+      "openInNewTab": false,
+      "createdAt": "2026-03-12T00:00:00.000Z",
+      "order": 4
+    }
+  ]
+}

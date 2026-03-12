@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevTools Hub</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/devtools-hub-icon.svg" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="appShell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar__header">
+          <div class="brand">
+            <span class="brand__logo">
+              <img src="./assets/devtools-hub-icon.svg" alt="DevTools Hub" />
+            </span>
+            <div>
+              <strong>DevTools Hub</strong>
+              <small>Internal Engineering Tools</small>
+            </div>
+          </div>
+
+          <div class="sidebar__actions">
+            <button class="btn btn--primary" id="newToolButton" data-tooltip="Adicionar ferramenta">
+              + Nova Ferramenta
+            </button>
+            <div class="sidebar__action-row">
+              <button class="btn btn--ghost" id="importButton" data-tooltip="Importar JSON">Importar</button>
+              <button class="btn btn--ghost" id="exportButton" data-tooltip="Exportar JSON">Exportar</button>
+            </div>
+            <input type="file" id="importInput" accept="application/json" hidden />
+          </div>
+
+          <label class="search">
+            <span class="search__icon">🔎</span>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Buscar por título, categoria ou descrição"
+              autocomplete="off"
+            />
+          </label>
+
+          <p class="sidebar__hint">↕ Arraste e solte ferramentas para reordenar o menu.</p>
+        </div>
+
+        <div class="sidebar__content" id="sidebarContent"></div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="main-header">
+          <div class="main-header__left">
+            <button class="icon-btn icon-btn--mobile" id="sidebarToggle" data-tooltip="Abrir menu">☰</button>
+            <div>
+              <h1 id="activeToolTitle">Workspace</h1>
+              <p id="activeToolMeta">Selecione uma ferramenta no menu lateral.</p>
+            </div>
+          </div>
+
+          <div class="main-header__actions">
+            <button class="icon-btn" id="reloadButton" data-tooltip="Recarregar">↻</button>
+            <button class="icon-btn" id="openExternalButton" data-tooltip="Abrir em nova aba">↗</button>
+          </div>
+        </header>
+
+        <section class="workspace" id="workspace">
+          <div class="workspace__empty" id="workspaceEmpty">
+            <div class="empty-state-card">
+              <h2>Nenhuma ferramenta cadastrada ainda.</h2>
+              <p>Adicione a primeira ferramenta do time.</p>
+            </div>
+          </div>
+
+          <div class="workspace__loader hidden" id="workspaceLoader">
+            <div class="skeleton skeleton--line"></div>
+            <div class="skeleton skeleton--line skeleton--short"></div>
+            <div class="spinner"></div>
+            <span>Carregando ferramenta...</span>
+          </div>
+
+          <div class="workspace__blocked hidden" id="workspaceBlocked">
+            <div class="empty-state-card">
+              <h2>Não foi possível exibir a ferramenta no workspace.</h2>
+              <p>Alguns sites bloqueiam iframe ou demoram para responder. Abra em nova aba para continuar.</p>
+              <button class="btn btn--primary" id="workspaceBlockedOpenButton">Abrir em nova aba</button>
+            </div>
+          </div>
+
+          <div class="workspace__quick-open hidden" id="workspaceQuickOpen">
+            <button class="btn btn--primary" id="workspaceQuickOpenButton">Não carregou? Abrir em nova aba</button>
+          </div>
+
+          <iframe id="workspaceFrame" title="Workspace da ferramenta" class="workspace__frame hidden"></iframe>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal hidden" id="toolModal" role="dialog" aria-modal="true" aria-labelledby="toolModalTitle">
+      <div class="modal__backdrop" data-close-modal="true"></div>
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 id="toolModalTitle">Nova Ferramenta</h2>
+          <button class="icon-btn" id="closeModalButton" aria-label="Fechar">✕</button>
+        </header>
+
+        <form id="toolForm" class="modal__form">
+          <input type="hidden" id="toolId" />
+
+          <label>
+            Título
+            <input id="toolTitle" name="title" required maxlength="80" />
+          </label>
+
+          <label>
+            URL da ferramenta
+            <input id="toolUrl" name="url" type="url" required placeholder="https://..." />
+          </label>
+
+          <label>
+            Descrição
+            <textarea id="toolDescription" name="description" rows="3" maxlength="240"></textarea>
+          </label>
+
+          <div class="modal__row">
+            <label>
+              Ícone
+              <input id="toolIcon" name="icon" maxlength="6" placeholder="🧰" />
+            </label>
+
+            <label>
+              Categoria
+              <input id="toolCategory" name="category" list="categoryList" required />
+              <datalist id="categoryList"></datalist>
+            </label>
+          </div>
+
+          <label class="checkbox-row">
+            <input id="toolFavorite" name="favorite" type="checkbox" />
+            Favorita
+          </label>
+
+          <label class="checkbox-row">
+            <input id="toolOpenInNewTab" name="openInNewTab" type="checkbox" />
+            Abrir sempre em nova aba
+          </label>
+
+          <div class="modal__footer">
+            <button type="button" class="btn btn--ghost" id="cancelModalButton">Cancelar</button>
+            <button type="submit" class="btn btn--primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
