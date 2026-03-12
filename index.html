@@ -164,6 +164,25 @@
       </div>
     </div>
 
+    <div class="modal hidden" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle">
+      <div class="modal__backdrop" data-close-confirm="true"></div>
+      <div class="modal__content modal__content--confirm">
+        <header class="modal__header">
+          <h2 id="confirmModalTitle">Confirmar ação</h2>
+          <button class="icon-btn" id="confirmCloseButton" aria-label="Fechar">✕</button>
+        </header>
+
+        <div class="confirm-modal__body">
+          <p id="confirmModalMessage">Deseja continuar?</p>
+        </div>
+
+        <footer class="modal__footer">
+          <button type="button" class="btn btn--ghost" id="confirmCancelButton">Cancelar</button>
+          <button type="button" class="btn btn--primary" id="confirmOkButton">Confirmar</button>
+        </footer>
+      </div>
+    </div>
+
     <div class="toast-stack" id="toastStack" aria-live="polite"></div>
 
     <script type="module" src="./app.js"></script>
