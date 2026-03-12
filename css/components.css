@@ -375,6 +375,7 @@
 }
 
 .modal__form input,
+.modal__form select,
 .modal__form textarea {
   height: 36px;
   border-radius: 8px;
