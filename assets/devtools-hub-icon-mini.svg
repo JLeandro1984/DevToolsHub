@@ -1,1 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DevTools Hub Mini Icon">
+  <defs>
+    <linearGradient id="miniBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
 
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#020617" />
+  <rect x="7" y="7" width="50" height="50" rx="12" fill="url(#miniBg)" opacity="0.28" />
+
+  <rect x="14" y="14" width="12" height="12" rx="3" fill="#1e293b" />
+  <rect x="38" y="14" width="12" height="12" rx="3" fill="#1e293b" />
+  <rect x="14" y="38" width="12" height="12" rx="3" fill="#1e293b" />
+  <rect x="38" y="38" width="12" height="12" rx="3" fill="#1e293b" />
+
+  <path d="M40 30.5a8 8 0 0 1-7.8-6.2l-6.1 6.1a6.8 6.8 0 1 1-2.5 2.5l6.1-6.1a8 8 0 1 1 10.3 3.7z"
+        fill="#e2e8f0" />
+</svg>
