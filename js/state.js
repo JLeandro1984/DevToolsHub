@@ -135,6 +135,23 @@ export function replaceTools(tools) {
   emit();
 }
 
+export function mergeImportedToolsPreservingExisting(importedTools) {
+  const imported = sortTools((importedTools || []).map((tool, index) => normalizeTool(tool, index)));
+  const importedIds = new Set(imported.map((tool) => tool.id));
+  const preserved = state.tools
+    .filter((tool) => !importedIds.has(tool.id))
+    .map((tool, index) => ({
+      ...tool,
+      order: imported.length + index,
+    }));
+
+  state.tools = sortTools([...imported, ...preserved]);
+  state.selectedToolId = state.tools.some((tool) => tool.id === state.selectedToolId)
+    ? state.selectedToolId
+    : state.tools[0]?.id || null;
+  emit();
+}
+
 export function getToolById(toolId) {
   return state.tools.find((tool) => tool.id === toolId) || null;
 }

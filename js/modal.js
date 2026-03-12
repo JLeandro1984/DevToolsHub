@@ -12,6 +12,17 @@ export function createToolModal({
   onSave,
 }) {
   let isEditing = false;
+  let closeTimer = null;
+
+  function resetVisibilityState() {
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+
+    modal.classList.add("hidden");
+    modal.classList.remove("tool-modal--open", "tool-modal--closing");
+  }
 
   function fillCategories(categories) {
     const merged = Array.from(new Set([...DEFAULT_CATEGORIES, ...(categories || [])]));
@@ -32,6 +43,10 @@ export function createToolModal({
     fillCategories(categories);
     resetForm();
     modal.classList.remove("hidden");
+    modal.classList.remove("tool-modal--closing");
+    requestAnimationFrame(() => {
+      modal.classList.add("tool-modal--open");
+    });
     fields.title.focus();
   }
 
@@ -50,11 +65,24 @@ export function createToolModal({
     fields.openInNewTab.checked = Boolean(tool.openInNewTab);
 
     modal.classList.remove("hidden");
+    modal.classList.remove("tool-modal--closing");
+    requestAnimationFrame(() => {
+      modal.classList.add("tool-modal--open");
+    });
     fields.title.focus();
   }
 
   function close() {
-    modal.classList.add("hidden");
+    if (modal.classList.contains("hidden")) {
+      return;
+    }
+
+    modal.classList.remove("tool-modal--open");
+    modal.classList.add("tool-modal--closing");
+
+    closeTimer = setTimeout(() => {
+      resetVisibilityState();
+    }, 180);
   }
 
   closeButton.addEventListener("click", close);

@@ -3,6 +3,7 @@ import {
   getState,
   getToolById,
   initializeState,
+  mergeImportedToolsPreservingExisting,
   reorderToolsByIds,
   replaceTools,
   selectTool,
@@ -18,6 +19,7 @@ import { setupSearch } from "./search.js";
 import { createSidebar } from "./sidebar.js";
 import { createWorkspace } from "./workspace.js";
 import { createToolModal } from "./modal.js";
+import { createConfirmDialog } from "./confirm.js";
 import { initializeNotifications, notify } from "./notifications.js";
 import { initializeRouter, syncHash } from "./router.js";
 import { uniqueCategories } from "./utils.js";
@@ -47,6 +49,12 @@ const elements = {
   cancelModalButton: document.getElementById("cancelModalButton"),
   toolForm: document.getElementById("toolForm"),
   toolModalTitle: document.getElementById("toolModalTitle"),
+  confirmModal: document.getElementById("confirmModal"),
+  confirmModalTitle: document.getElementById("confirmModalTitle"),
+  confirmModalMessage: document.getElementById("confirmModalMessage"),
+  confirmOkButton: document.getElementById("confirmOkButton"),
+  confirmCancelButton: document.getElementById("confirmCancelButton"),
+  confirmCloseButton: document.getElementById("confirmCloseButton"),
   categoryList: document.getElementById("categoryList"),
   toastStack: document.getElementById("toastStack"),
   fields: {
@@ -62,6 +70,15 @@ const elements = {
 };
 
 initializeNotifications(elements.toastStack);
+
+const confirmDialog = createConfirmDialog({
+  modal: elements.confirmModal,
+  titleElement: elements.confirmModalTitle,
+  messageElement: elements.confirmModalMessage,
+  confirmButton: elements.confirmOkButton,
+  cancelButton: elements.confirmCancelButton,
+  closeButton: elements.confirmCloseButton,
+});
 
 const sidebar = createSidebar({
   container: elements.sidebarContent,
@@ -87,13 +104,20 @@ const sidebar = createSidebar({
 
     modal.openForEdit(tool, uniqueCategories(getState().tools));
   },
-  onDelete: (toolId) => {
+  onDelete: async (toolId) => {
     const tool = getToolById(toolId);
     if (!tool) {
       return;
     }
 
-    const confirmed = window.confirm(`Excluir a ferramenta "${tool.title}"?`);
+    const confirmed = await confirmDialog.open({
+      title: "Excluir ferramenta",
+      message: `Tem certeza que deseja excluir \"${tool.title}\"? Essa ação não pode ser desfeita.`,
+      confirmLabel: "Excluir",
+      cancelLabel: "Cancelar",
+      variant: "danger",
+    });
+
     if (!confirmed) {
       return;
     }
@@ -186,8 +210,20 @@ elements.importInput.addEventListener("change", async (event) => {
   try {
     const text = await file.text();
     const importedTools = parseImportedTools(text);
-    replaceTools(importedTools);
-    notify("Ferramentas importadas com sucesso", "success");
+    const keepPersonalTools = await confirmDialog.open({
+      title: "Importar ferramentas",
+      message: "Deseja manter suas ferramentas pessoais atuais?\n\nEscolha Manter para importar sem remover suas ferramentas existentes.",
+      confirmLabel: "Manter e importar",
+      cancelLabel: "Substituir tudo",
+    });
+
+    if (keepPersonalTools) {
+      mergeImportedToolsPreservingExisting(importedTools);
+      notify("Importação concluída mantendo ferramentas pessoais", "success");
+    } else {
+      replaceTools(importedTools);
+      notify("Ferramentas importadas com sucesso", "success");
+    }
   } catch (error) {
     notify(error.message || "Falha ao importar arquivo", "danger");
   } finally {

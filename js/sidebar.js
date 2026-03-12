@@ -79,6 +79,7 @@ export function createSidebar({ container, onSelect, onEdit, onDelete, onToggleF
   document.addEventListener("click", (event) => {
     if (!event.target.closest(".item-menu") && !event.target.closest('[data-action="toggle-menu"]')) {
       container.querySelectorAll(".item-menu.open").forEach((menu) => menu.classList.remove("open"));
+      container.querySelectorAll(".tool-item--menu-open").forEach((item) => item.classList.remove("tool-item--menu-open"));
     }
   });
 
@@ -106,12 +107,19 @@ export function createSidebar({ container, onSelect, onEdit, onDelete, onToggleF
     const menuToggleButton = event.target.closest('[data-action="toggle-menu"]');
     if (menuToggleButton) {
       const menu = container.querySelector(`[data-menu-id="${menuToggleButton.dataset.toolId}"]`);
+      const item = menuToggleButton.closest(".tool-item");
       container.querySelectorAll(".item-menu.open").forEach((entry) => {
         if (entry !== menu) {
           entry.classList.remove("open");
         }
       });
+      container.querySelectorAll(".tool-item--menu-open").forEach((entry) => {
+        if (entry !== item) {
+          entry.classList.remove("tool-item--menu-open");
+        }
+      });
       menu?.classList.toggle("open");
+      item?.classList.toggle("tool-item--menu-open", menu?.classList.contains("open"));
       return;
     }
 
@@ -140,6 +148,9 @@ export function createSidebar({ container, onSelect, onEdit, onDelete, onToggleF
     } else if (action === "open") {
       onOpenExternal(toolId);
     }
+
+    menuActionButton.closest(".item-menu")?.classList.remove("open");
+    menuActionButton.closest(".tool-item")?.classList.remove("tool-item--menu-open");
   });
 
   function render(state) {
