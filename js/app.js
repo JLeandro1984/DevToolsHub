@@ -55,7 +55,6 @@ const elements = {
   confirmOkButton: document.getElementById("confirmOkButton"),
   confirmCancelButton: document.getElementById("confirmCancelButton"),
   confirmCloseButton: document.getElementById("confirmCloseButton"),
-  categoryList: document.getElementById("categoryList"),
   toastStack: document.getElementById("toastStack"),
   fields: {
     id: document.getElementById("toolId"),
@@ -177,7 +176,7 @@ const modal = createToolModal({
   form: elements.toolForm,
   titleElement: elements.toolModalTitle,
   fields: elements.fields,
-  categoryList: elements.categoryList,
+  categorySelect: elements.fields.category,
   onSave: (toolData, context) => {
     upsertTool(toolData);
     notify(context?.isEditing ? "Alterações salvas" : "Ferramenta adicionada com sucesso", "success");

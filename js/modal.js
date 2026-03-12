@@ -8,7 +8,7 @@ export function createToolModal({
   form,
   titleElement,
   fields,
-  categoryList,
+  categorySelect,
   onSave,
 }) {
   let isEditing = false;
@@ -26,7 +26,7 @@ export function createToolModal({
 
   function fillCategories(categories) {
     const merged = Array.from(new Set([...DEFAULT_CATEGORIES, ...(categories || [])]));
-    categoryList.innerHTML = merged.map((name) => `<option value="${name}"></option>`).join("");
+    categorySelect.innerHTML = merged.map((name) => `<option value="${name}">${name}</option>`).join("");
   }
 
   function resetForm() {
