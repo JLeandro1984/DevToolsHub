@@ -47,6 +47,15 @@
   background: var(--primary-hover);
 }
 
+.btn--danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn--danger:hover {
+  filter: brightness(0.95);
+}
+
 .btn--ghost {
   background: #0b1223;
   border-color: var(--border);
@@ -101,7 +110,7 @@
   margin-bottom: 12px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  overflow: hidden;
+  overflow: visible;
   background: rgba(11, 18, 35, 0.6);
 }
 
@@ -131,6 +140,10 @@
   border: 1px solid transparent;
   transition: 0.2s ease;
   position: relative;
+}
+
+.tool-item--menu-open {
+  z-index: 12;
 }
 
 .tool-item:hover {
@@ -263,6 +276,60 @@
   box-shadow: var(--shadow-lg);
 }
 
+.modal__content--confirm {
+  width: min(440px, calc(100vw - 24px));
+}
+
+#toolModal .modal__backdrop {
+  opacity: 0;
+}
+
+#toolModal .modal__content {
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+}
+
+#toolModal.tool-modal--open .modal__backdrop {
+  animation: tool-backdrop-in 0.18s ease forwards;
+}
+
+#toolModal.tool-modal--open .modal__content {
+  animation: tool-card-in 0.2s ease forwards;
+}
+
+#toolModal.tool-modal--closing .modal__backdrop {
+  animation: tool-backdrop-out 0.16s ease forwards;
+}
+
+#toolModal.tool-modal--closing .modal__content {
+  animation: tool-card-out 0.18s ease forwards;
+}
+
+#confirmModal .modal__backdrop {
+  opacity: 0;
+}
+
+#confirmModal .modal__content--confirm {
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+}
+
+#confirmModal.confirm-modal--open .modal__backdrop {
+  animation: confirm-backdrop-in 0.18s ease forwards;
+}
+
+#confirmModal.confirm-modal--open .modal__content--confirm {
+  animation: confirm-card-in 0.2s ease forwards;
+}
+
+#confirmModal.confirm-modal--closing .modal__backdrop {
+  animation: confirm-backdrop-out 0.16s ease forwards;
+}
+
+#confirmModal.confirm-modal--closing .modal__content--confirm {
+  animation: confirm-card-out 0.18s ease forwards;
+}
+
 .modal__header,
 .modal__footer {
   display: flex;
@@ -283,6 +350,16 @@
   display: grid;
   gap: 12px;
   padding: 14px;
+}
+
+.confirm-modal__body {
+  padding: 18px 16px 8px;
+}
+
+.confirm-modal__body p {
+  margin: 0;
+  color: var(--text-main);
+  line-height: 1.5;
 }
 
 .modal__form label {
@@ -434,6 +511,86 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes confirm-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes confirm-backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes confirm-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes confirm-card-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+}
+
+@keyframes tool-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tool-backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes tool-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes tool-card-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
   }
 }
 
