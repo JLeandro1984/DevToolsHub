@@ -2,53 +2,125 @@
   "version": "1.0.0",
   "updatedAt": "2026-03-12T00:00:00.000Z",
   "tools": [
-    {
-      "id": "92392bdc-84fe-473f-8585-7f6ef6de8e9c",
-      "title": "Gerador de Arquivos",
-      "url": "https://jleandro1984.github.io/GerarArquivosFicticios/",
-      "icon": "📄",
-      "description": "Gerador de arquivos fictícios",
-      "category": "Dev Tools",
-      "favorite": true,
-     "openInNewTab": true,
-      "createdAt": "2026-03-12T15:49:41.065Z",
-      "order": 0
-    },
-    {
-      "id": "6a6bb841-b8aa-462b-889b-a8cfe8d3e237",
-      "title": "Gerador Inserts Globalização",
-      "url": "https://jleandro1984.github.io/GerarGlobalizacao/",
-      "icon": "🌐",
-      "description": "Gerador Inserts Globalização",
-      "category": "Utilities",
-      "favorite": true,
-      "openInNewTab": true,
-      "createdAt": "2026-03-12T15:56:09.710Z",
-      "order": 1
-    },
-    {
-      "id": "28lo84jl-b8aa-462b-889b-a8cfe8d3e237",
-      "title": "Formatar Json",
-      "url": "https://jsonformatter.org/",
-      "icon": "{}✨",
-      "description": "Ferramenta para formatar e validar JSON.",
-      "category": "Utilities",
-      "favorite": false,
-      "openInNewTab": false,
-      "createdAt": "2026-03-12T00:00:00.000Z",
-      "order": 2
-    },
-    {
-      "id": "default-uuid",
-      "title": "Gerador UUID",
-      "url": "https://www.uuidgenerator.net/",
-      "icon": "🆔",
-      "description": "Criação rápida de identificadores UUID.",
-      "category": "Generators",
-      "favorite": false,
-      "openInNewTab": false,
-      "createdAt": "2026-03-12T00:00:00.000Z",
-      "order": 3
-    }
-  ]
+  {
+    "id": "6a6bb841-b8aa-462b-889b-a8cfe8d3e237",
+    "title": "Gerador Inserts Globalização",
+    "url": "https://jleandro1984.github.io/GerarGlobalizacao/",
+    "icon": "🌐",
+    "description": "Gerador Inserts Globalização",
+    "category": "Utilities",
+    "favorite": true,
+    "openInNewTab": false,
+    "createdAt": "2026-03-12T15:56:09.710Z",
+    "order": 0
+  },
+  {
+    "id": "92392bdc-84fe-473f-8585-7f6ef6de8e9c",
+    "title": "Gerador de Arquivos",
+    "url": "https://jleandro1984.github.io/GerarArquivosFicticios/",
+    "icon": "📄",
+    "description": "Gerador de arquivos fictícios",
+    "category": "Dev Tools",
+    "favorite": true,
+    "openInNewTab": true,
+    "createdAt": "2026-03-12T15:49:41.065Z",
+    "order": 1
+  },
+  {
+    "id": "0523bdc9-c2f8-42a0-81ac-df6b2553e489",
+    "title": "Limpar cache Arker - LocalHost",
+    "url": "http://localhost:50833/admin/application.aspx",
+    "icon": "🧹🔄",
+    "description": "Limpar cache local",
+    "category": "Dev Tools",
+    "favorite": true,
+    "openInNewTab": true,
+    "createdAt": "2026-03-17T18:20:48.173Z",
+    "order": 4
+  },
+  {
+    "id": "5deab638-3262-4850-8421-2aaaeff65d28",
+    "title": "Gerador CNPJ Bade",
+    "url": "https://cnpj.bade.digital/ferramentas/gerador-cnpj/",
+    "icon": "🏢🔢",
+    "description": "Gerador CNPJ criado pelo Fernando Bade",
+    "category": "Dev Tools",
+    "favorite": true,
+    "openInNewTab": false,
+    "createdAt": "2026-03-18T15:08:00.062Z",
+    "order": 6
+  },
+  {
+    "id": "201b4cb4-e233-49d5-aea7-867402ef2765",
+    "title": "Gerador Resources",
+    "url": "https://jleandro1984.github.io/GerarResouces/",
+    "icon": "🏷️",
+    "description": "Gerador Resources - JL",
+    "category": "Dev Tools",
+    "favorite": true,
+    "openInNewTab": false,
+    "createdAt": "2026-03-19T18:35:23.420Z",
+    "order": 9
+  },
+  {
+    "id": "default-uuid",
+    "title": "Gerador UUID",
+    "url": "https://www.uuidgenerator.net/",
+    "icon": "🆔",
+    "description": "Criação rápida de identificadores UUID.",
+    "category": "Generators",
+    "favorite": false,
+    "openInNewTab": true,
+    "createdAt": "2026-03-12T15:47:24.840Z",
+    "order": 2
+  },
+  {
+    "id": "28lo84jl-b8aa-462b-889b-a8cfe8d3e237",
+    "title": "Formatar Json",
+    "url": "https://jsonformatter.org/",
+    "icon": "{}✨",
+    "description": "Ferramenta para formatar e validar JSON.",
+    "category": "Utilities",
+    "favorite": false,
+    "openInNewTab": false,
+    "createdAt": "2026-03-12T00:00:00.000Z",
+    "order": 3
+  },
+  {
+    "id": "b26bf7dc-b8a8-4de2-87ff-a6d224f5a68c",
+    "title": "Arker Admin",
+    "url": "https://admin.arker.com.br/login",
+    "icon": "🧩",
+    "description": "Arker Admin",
+    "category": "Utilities",
+    "favorite": false,
+    "openInNewTab": true,
+    "createdAt": "2026-03-17T18:24:46.874Z",
+    "order": 5
+  },
+  {
+    "id": "f17454c0-81ad-407a-9495-b693dcba5c99",
+    "title": "Makesense IA",
+    "url": "https://www.makesense.ai/",
+    "icon": "🤖",
+    "description": "gerador best.pt para treinamento o YOLO",
+    "category": "Utilities",
+    "favorite": false,
+    "openInNewTab": true,
+    "createdAt": "2026-03-19T14:15:01.325Z",
+    "order": 7
+  },
+  {
+    "id": "35f8cf53-97f4-4792-910e-c8fdf7008a2e",
+    "title": "GitLub - Neogrid",
+    "url": "https://gitlab.com/neogrid1/inteligencia-comercial/arker",
+    "icon": "🦊",
+    "description": "Ferramenta para solicitação de merge 🦊",
+    "category": "Utilities",
+    "favorite": false,
+    "openInNewTab": true,
+    "createdAt": "2026-03-19T17:54:42.890Z",
+    "order": 8
+  }
+]
 }
