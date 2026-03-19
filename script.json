@@ -32,7 +32,7 @@
     "url": "http://localhost:50833/admin/application.aspx",
     "icon": "🧹🔄",
     "description": "Limpar cache local",
-    "category": "Dev Tools",
+    "category": "Utilities",
     "favorite": true,
     "openInNewTab": true,
     "createdAt": "2026-03-17T18:20:48.173Z",
