@@ -32,11 +32,11 @@
     "url": "http://localhost:50833/admin/application.aspx",
     "icon": "🧹🔄",
     "description": "Limpar cache local",
-    "category": "Utilities",
+    "category": "Dev Tools",
     "favorite": true,
     "openInNewTab": true,
     "createdAt": "2026-03-17T18:20:48.173Z",
-    "order": 4
+    "order": 2
   },
   {
     "id": "5deab638-3262-4850-8421-2aaaeff65d28",
@@ -48,7 +48,7 @@
     "favorite": true,
     "openInNewTab": false,
     "createdAt": "2026-03-18T15:08:00.062Z",
-    "order": 6
+    "order": 3
   },
   {
     "id": "201b4cb4-e233-49d5-aea7-867402ef2765",
@@ -60,7 +60,7 @@
     "favorite": true,
     "openInNewTab": false,
     "createdAt": "2026-03-19T18:35:23.420Z",
-    "order": 9
+    "order": 4
   },
   {
     "id": "default-uuid",
@@ -72,7 +72,7 @@
     "favorite": false,
     "openInNewTab": true,
     "createdAt": "2026-03-12T15:47:24.840Z",
-    "order": 2
+    "order": 5
   },
   {
     "id": "28lo84jl-b8aa-462b-889b-a8cfe8d3e237",
@@ -84,7 +84,7 @@
     "favorite": false,
     "openInNewTab": false,
     "createdAt": "2026-03-12T00:00:00.000Z",
-    "order": 3
+    "order": 6
   },
   {
     "id": "b26bf7dc-b8a8-4de2-87ff-a6d224f5a68c",
@@ -96,7 +96,7 @@
     "favorite": false,
     "openInNewTab": true,
     "createdAt": "2026-03-17T18:24:46.874Z",
-    "order": 5
+    "order": 7
   },
   {
     "id": "35f8cf53-97f4-4792-910e-c8fdf7008a2e",
@@ -109,6 +109,18 @@
     "openInNewTab": true,
     "createdAt": "2026-03-19T17:54:42.890Z",
     "order": 8
+  },
+    {
+    "id": "bf217c90-6794-44c0-8206-a4ac3bcfdf1d",
+    "title": "Gerador base64 - JL",
+    "url": "https://jleandro1984.github.io/GeradorBase64/",
+    "icon": "🔄",
+    "description": "Gerador e validador base64 - JL",
+    "category": "Dev Tools",
+    "favorite": true,
+    "openInNewTab": false,
+    "createdAt": "2026-03-20T18:04:09.468Z",
+    "order": 9
   }
 ]
 }
