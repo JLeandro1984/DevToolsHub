@@ -121,6 +121,18 @@
     "openInNewTab": false,
     "createdAt": "2026-03-20T18:04:09.468Z",
     "order": 9
+  },
+ {
+    "id": "d5bee816-596b-462b-a185-b5c3104686ff",
+    "title": "Kandan - JL",
+    "url": "https://jleandro1984.github.io/ProjetoKanban/",
+    "icon": "🟨✏️",
+    "description": "Controle e projetos - Kanban (JL)",
+    "category": "Utilities",
+    "favorite": false,
+    "openInNewTab": true,
+    "createdAt": "2026-04-08T13:53:19.168Z",
+    "order": 10
   }
 ]
 }
